@@ -1,0 +1,135 @@
+.dashboard .filter{
+    position: absolute;
+    right: 0px;
+    top:15px;
+
+}
+
+.dashboard .filter .icon{
+    color: #aab7cf;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.dashboard .filter .icon:hover,
+.dashboard .filter .icon:focus{
+    color: #4154f1;
+}
+
+.dashboard .filter .dropdown-header{
+    padding: 8px 15px;
+}
+
+.dashboard .filter .dropdown-header h6{
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #aab7cf;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.dashboard .filter .dropdown-item{
+    padding: 8px 15px;
+}
+
+
+/*/
+
+/* Login Section */
+.login-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f5f7;
+  }
+  
+  .login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    background: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .login-header h2 {
+    font-size: 24px;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .login-header p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+  
+  .login-form .form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  
+  .login-form label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .login-form input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-button {
+    width: 100%;
+    padding: 0.7rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 1rem;
+  }
+  
+  .form-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .divider {
+    margin: 1.5rem 0;
+    position: relative;
+  }
+  
+  .divider span {
+    background: #fff;
+    padding: 0 1rem;
+    color: #666;
+    position: relative;
+  }
+  
+  .google-login-button {
+    margin: 1rem 0;
+  }
+  
+  .toggle-link p {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .toggle-link span {
+    color: #007bff;
+    cursor: pointer;
+  }
+  
+  
