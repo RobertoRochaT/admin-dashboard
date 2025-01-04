@@ -28,7 +28,7 @@ const ReportCharts = ({ filter }) => {
 
     const fetchBotData = async () => {
         try {
-            const response = await fetch(`http://localhost:9001/api/consultas-bot?filter=${filter}`);
+            const response = await fetch(`https://backendadmind.onrender.com/api/consultas-bot?filter=${filter}`);
             const consultsData = await response.json();
 
             if (!Array.isArray(consultsData) || consultsData.length === 0) {
