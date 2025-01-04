@@ -3,8 +3,7 @@ import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import "./dashboard.css";
 
-const GOOGLE_CLIENT_ID =
-  "59218907853-fd4ahg6j2t73pce5k5duso3of0jlppt8.apps.googleusercontent.com";
+const GOOGLE_CLIENT_ID = import.meta.env.REACT_APP_GOOGLE_CLIENT_ID;
 
 const Login = () => {
   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
