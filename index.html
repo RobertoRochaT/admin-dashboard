@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/admin-dashboard/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+    <script type="module" crossorigin src="/admin-dashboard/assets/index-CyZksrCn.js"></script>
+    <link rel="stylesheet" crossorigin href="/admin-dashboard/assets/index-DHL4NMh_.css">
+  </head>
+  <body class="toggle-sidebar">
+    <div id="root"></div>
+    <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+    <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+    <df-messenger
+      project-id="tec-laguna-bot"
+      agent-id="dceb8aee-db5e-437c-b5d3-0f6a21793641"
+      language-code="es"
+      max-query-length="-1">
+      <df-messenger-chat-bubble
+      chat-title="TecLagunaChatBot">
+      </df-messenger-chat-bubble>
+    </df-messenger>
+    <style>
+      df-messenger {
+        z-index: 999;
+        position: fixed;
+        --df-messenger-font-color: #000;
+        --df-messenger-font-family: Google Sans;
+        --df-messenger-chat-background: #f3f6fc;
+        --df-messenger-message-user-background: #d3e3fd;
+        --df-messenger-message-bot-background: #fff;
+        bottom: 16px;
+        right: 16px;
+      }
+    </style>
+    <script>
+      const fetchDatas = async (link, data) => {
+        try {
+          const response = await fetch(`http://localhost:9001/api/${link}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+          });
+
+          if (!response.ok) {
+            console.error(`Error in POST ${link}:`, await response.json());
+          }
+        } catch (error) {
+          console.error(`Error connecting to ${link}:`, error);
+        }
+      };
+
+      const dfMessenger = document.querySelector('df-messenger');
+      dfMessenger.clearStorage();
+      window.addEventListener('df-user-input-entered', async (event) => {
+
+        const userInputs = event.detail.input;
+
+        const newConsult = {
+          user: "Anonymous",
+          query: userInputs,
+          responseTime: "0.5s",
+          status: "Resolved",
+          date: new Date().toDateString(),
+        };
+
+        const updateCards = [
+          {
+            name: "Bot Consults",
+            icon: "bi bi-chat-dots",
+            amount: 101,
+            percentage: 0.12,
+            active: true,
+          },
+          {
+            name: "Top Consults",
+            icon: "bi bi-award",
+            query: "Hola",
+            active: false,
+          },
+          {
+            name: "Users",
+            icon: "bi bi-person",
+            amount: 1244,
+            percentage: -0.11,
+            active: false,
+          },
+        ];
+
+        try {
+          await fetchDatas('recentConsults', newConsult);
+
+          for (const card of updateCards) {
+            await fetchDatas('cards', card);
+          }
+        } catch (error) {
+          console.error("Error updating data:", error);
+        }
+      });
+    </script>
+
+  </body>
+</html>
