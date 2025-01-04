@@ -41,7 +41,7 @@ const Login = () => {
     const tokenId = credentialResponse.credential;
 
     axios
-      .post("http://localhost:9001/api/google-login", { tokenId })
+      .post(" https://backendadmind.onrender.com/api/google-login", { tokenId })
       .then((res) => {
         console.log("Google Login Success:", res.data);
         localStorage.setItem("user", JSON.stringify(res.data.user));
@@ -55,6 +55,7 @@ const Login = () => {
       });
   };
 
+  console.log("GOOGLE_CLIENT_ID:", GOOGLE_CLIENT_ID);
   return (
     <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
       <section className="login-section">

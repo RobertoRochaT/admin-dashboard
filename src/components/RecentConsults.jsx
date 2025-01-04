@@ -21,7 +21,7 @@ const RecentSales = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:9001/api/recentConsults/bigquery', {
+        const response = await axios.get('https://backendadmind.onrender.com/api/recentConsults/bigquery', {
           withCredentials: true, // Permitir envío de cookies y credenciales
         });
         console.log(response.data);

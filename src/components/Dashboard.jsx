@@ -11,7 +11,7 @@ const Dashboard = () => {
   useEffect(() => {
     const BigDataFetch = async () => {
       try {
-        const response = await axios.get('http://localhost:9001/api/recentConsults/bigquery', {
+        const response = await axios.get('https://backendadmind.onrender.com/api/recentConsults/bigquery', {
           withCredentials: true,
         });
         console.log(response.data);
